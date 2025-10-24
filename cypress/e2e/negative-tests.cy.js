@@ -27,9 +27,6 @@ describe('Negative Test Cases', () => {
       expect(str).to.equal('User does not exist.')
     })
     
-    // Wait for alert to be handled
-    cy.wait(500)
-    
     // Verify user is not logged in
     cy.get('#login2').should('be.visible')
   })

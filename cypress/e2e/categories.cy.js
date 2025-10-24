@@ -13,7 +13,6 @@ describe('Category Validation Tests', () => {
   it('should display products in Phones category', () => {
     // Click on Phones category
     cy.contains('Phones').click()
-    cy.wait(500)
     
     // Verify products are displayed
     cy.get('.card').should('have.length.greaterThan', 0)
@@ -27,7 +26,6 @@ describe('Category Validation Tests', () => {
   it('should display products in Laptops category', () => {
     // Click on Laptops category
     cy.contains('Laptops').click()
-    cy.wait(500)
     
     // Verify products are displayed
     cy.get('.card').should('have.length.greaterThan', 0)
@@ -40,7 +38,6 @@ describe('Category Validation Tests', () => {
   it('should display products in Monitors category', () => {
     // Click on Monitors category
     cy.contains('Monitors').click()
-    cy.wait(500)
     
     // Verify products are displayed
     cy.get('.card').should('have.length.greaterThan', 0)
@@ -53,17 +50,14 @@ describe('Category Validation Tests', () => {
   it('should navigate between categories', () => {
     // Navigate to Phones
     cy.contains('Phones').click()
-    cy.wait(500)
     cy.contains('Samsung galaxy s6').should('be.visible')
     
     // Navigate to Laptops
     cy.contains('Laptops').click()
-    cy.wait(500)
     cy.contains('Sony vaio i5').should('be.visible')
     
     // Navigate to Monitors
     cy.contains('Monitors').click()
-    cy.wait(500)
     cy.contains('Apple monitor 24').should('be.visible')
   })
 

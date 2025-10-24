@@ -91,7 +91,6 @@ describe('Complete Purchase Flow Tests', () => {
     // Add laptop product
     cy.visit('https://www.demoblaze.com')
     cy.contains('Laptops').click()
-    cy.wait(500)
     cy.contains('a', 'Sony vaio i5').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()

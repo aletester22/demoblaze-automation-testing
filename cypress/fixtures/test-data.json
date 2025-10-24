@@ -1,0 +1,46 @@
+{
+  "users": {
+    "valid": {
+      "username": "admin",
+      "password": "admin"
+    },
+    "invalid": {
+      "username": "invaliduser",
+      "password": "wrongpassword"
+    }
+  },
+  "products": {
+    "phones": [
+      "Samsung galaxy s6",
+      "Nokia lumia 1520",
+      "Nexus 6"
+    ],
+    "laptops": [
+      "Sony vaio i5",
+      "Sony vaio i7",
+      "MacBook air"
+    ],
+    "monitors": [
+      "Apple monitor 24",
+      "ASUS Full HD"
+    ]
+  },
+  "customerData": {
+    "valid": {
+      "name": "John Doe",
+      "country": "United States",
+      "city": "New York",
+      "card": "1234567812345678",
+      "month": "12",
+      "year": "2025"
+    },
+    "international": {
+      "name": "José María",
+      "country": "España",
+      "city": "Madrid",
+      "card": "9876543210987654",
+      "month": "06",
+      "year": "2026"
+    }
+  }
+}

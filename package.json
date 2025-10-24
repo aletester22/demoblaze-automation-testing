@@ -1,0 +1,29 @@
+{
+  "name": "demoblaze-automation",
+  "version": "1.0.0",
+  "description": "Automated testing project for Demoblaze using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "cypress run",
+    "test:headed": "cypress run --headed",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results"
+  },
+  "keywords": [
+    "cypress",
+    "automation",
+    "testing",
+    "demoblaze",
+    "e2e"
+  ],
+  "author": "Automation Team",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "@shelex/cypress-allure-plugin": "^2.40.0",
+    "allure-commandline": "^2.24.0"
+  }
+}

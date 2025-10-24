@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cypress - Keep some artifacts for demonstration
+# cypress/videos/ - Commented out to include videos in Git
+# cypress/screenshots/ - Commented out to include screenshots in Git
+cypress/downloads/
+
+# Allure
+# allure-results/ - Commented out to include results in Git
+# allure-report/ - Commented out to include reports in Git
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporary files
+*.tmp
+*.temp

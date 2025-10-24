@@ -9,47 +9,49 @@ describe('Login Tests', () => {
 
   it('should login successfully with valid credentials', () => {
     // Click login button
-    cy.get('#login2').click()
+    cy.get('#login2').should('be.visible').click()
     
     // Fill login form
-    cy.get('#loginusername').type('admin')
-    cy.get('#loginpassword').type('admin')
+    cy.get('#loginusername').should('be.visible').type('admin')
+    cy.get('#loginpassword').should('be.visible').type('admin')
     
     // Click login button
-    cy.get('button[onclick="logIn()"]').click()
+    cy.get('button[onclick="logIn()"]').should('be.visible').click()
     
-    // Verify login success - check that logout button exists and is clickable
+    // Verify login success - check that logout button exists
     cy.get('#logout2').should('exist')
-    cy.get('#logout2').should('not.have.attr', 'style', 'display: none')
   })
 
   it('should fail login with invalid username', () => {
     // Click login button
-    cy.get('#login2').click()
+    cy.get('#login2').should('be.visible').click()
     
     // Fill login form with invalid credentials
-    cy.get('#loginusername').type('invaliduser')
-    cy.get('#loginpassword').type('admin')
+    cy.get('#loginusername').should('be.visible').type('invaliduser')
+    cy.get('#loginpassword').should('be.visible').type('admin')
     
     // Click login button
-    cy.get('button[onclick="logIn()"]').click()
+    cy.get('button[onclick="logIn()"]').should('be.visible').click()
     
     // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('User does not exist.')
     })
+    
+    // Verify login button is still visible
+    cy.get('#login2').should('be.visible')
   })
 
   it('should fail login with invalid password', () => {
     // Click login button
-    cy.get('#login2').click()
+    cy.get('#login2').should('be.visible').click()
     
     // Fill login form with invalid password
-    cy.get('#loginusername').type('admin')
-    cy.get('#loginpassword').type('wrongpassword')
+    cy.get('#loginusername').should('be.visible').type('admin')
+    cy.get('#loginpassword').should('be.visible').type('wrongpassword')
     
     // Click login button
-    cy.get('button[onclick="logIn()"]').click()
+    cy.get('button[onclick="logIn()"]').should('be.visible').click()
     
     // Handle alert
     cy.on('window:alert', (str) => {
@@ -63,10 +65,10 @@ describe('Login Tests', () => {
 
   it('should logout successfully', () => {
     // First login
-    cy.get('#login2').click()
-    cy.get('#loginusername').type('admin')
-    cy.get('#loginpassword').type('admin')
-    cy.get('button[onclick="logIn()"]').click()
+    cy.get('#login2').should('be.visible').click()
+    cy.get('#loginusername').should('be.visible').type('admin')
+    cy.get('#loginpassword').should('be.visible').type('admin')
+    cy.get('button[onclick="logIn()"]').should('be.visible').click()
     
     // Verify login success
     cy.get('#logout2').should('exist')

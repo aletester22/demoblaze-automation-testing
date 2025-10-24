@@ -10,8 +10,8 @@ yarn-error.log*
 cypress/downloads/
 
 # Allure
-# allure-results/ - Commented out to include results in Git
-# allure-report/ - Commented out to include reports in Git
+allure-results/
+allure-report/
 
 # OS generated files
 .DS_Store

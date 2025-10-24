@@ -18,11 +18,9 @@ describe('Login Tests', () => {
     // Click login button
     cy.get('button[onclick="logIn()"]').click()
     
-    // Wait for login to complete
-    cy.wait(3000)
-    
-    // Verify login success by checking that we can see the page content
-    cy.get('body').should('be.visible')
+    // Verify login success - check that logout button exists and is clickable
+    cy.get('#logout2').should('exist')
+    cy.get('#logout2').should('not.have.attr', 'style', 'display: none')
   })
 
   it('should fail login with invalid username', () => {
@@ -53,7 +51,11 @@ describe('Login Tests', () => {
     // Click login button
     cy.get('button[onclick="logIn()"]').click()
     
-    // Verify login failure
+    // Verify login failure - check that login button is still visible
+    cy.get('#login2').should('be.visible')
+    cy.get('#logout2').should('not.be.visible')
+    
+    // Verify error message
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Wrong password.')
     })
@@ -66,14 +68,11 @@ describe('Login Tests', () => {
     cy.get('#loginpassword').type('admin')
     cy.get('button[onclick="logIn()"]').click()
     
-    // Wait for login to complete
-    cy.wait(3000)
+    // Verify login success
+    cy.get('#logout2').should('exist')
     
-    // Then logout - force click since element might be hidden
+    // Then logout
     cy.get('#logout2').click({ force: true })
-    
-    // Wait for logout to complete
-    cy.wait(2000)
     
     // Verify user is logged out - check that login button is visible
     cy.get('#login2').should('be.visible')

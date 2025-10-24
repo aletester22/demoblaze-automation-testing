@@ -46,10 +46,7 @@ describe('Dynamic Validation Tests', () => {
     // Delete the product
     cy.contains('Delete').first().click()
     
-    // Wait for deletion
-    cy.wait(1000)
-    
-    // Verify cart is empty
+    // Verify cart is empty - wait for deletion to complete
     cy.get('#tbodyid tr').should('not.exist')
   })
 
@@ -82,10 +79,7 @@ describe('Dynamic Validation Tests', () => {
     // Delete first product
     cy.get('#tbodyid tr').first().find('a').contains('Delete').click()
     
-    // Wait for deletion
-    cy.wait(1000)
-    
-    // Verify only one product remains
+    // Verify only one product remains - wait for deletion to complete
     cy.get('#tbodyid tr').should('have.length', 1)
   })
 
@@ -101,7 +95,6 @@ describe('Dynamic Validation Tests', () => {
     // Navigate to home and then to different category
     cy.visit('https://www.demoblaze.com')
     cy.contains('Laptops').click()
-    cy.wait(500)
     
     // Go to cart
     cy.get('#cartur').click()
@@ -117,20 +110,13 @@ describe('Dynamic Validation Tests', () => {
     cy.get('#loginpassword').type('admin')
     cy.get('button[onclick="logIn()"]').click()
     
-    // Wait for login to complete
-    cy.wait(1000)
+    // Verify login success
+    cy.get('#logout2').should('exist')
     
-    // Wait for login to complete
-    cy.wait(2000)
-    
-    // Wait for login to complete
-    cy.wait(3000)
-    
-    // Close any open modal first
+    // Close any open modal if present
     cy.get('body').then(($body) => {
-      if ($body.find('#logInModal').length > 0) {
+      if ($body.find('#logInModal').is(':visible')) {
         cy.get('body').type('{esc}')
-        cy.wait(1000)
       }
     })
     

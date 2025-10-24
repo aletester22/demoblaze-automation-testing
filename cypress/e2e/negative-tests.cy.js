@@ -22,7 +22,7 @@ describe('Negative Test Cases', () => {
     // Click login button
     cy.get('button[onclick="logIn()"]').click()
     
-    // Verify login fails
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('User does not exist.')
     })
@@ -36,6 +36,8 @@ describe('Negative Test Cases', () => {
     cy.contains('a', 'Samsung galaxy s6').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })
@@ -58,6 +60,8 @@ describe('Negative Test Cases', () => {
     cy.contains('a', 'Samsung galaxy s6').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })

@@ -16,6 +16,8 @@ describe('Dynamic Validation Tests', () => {
     
     // Add product to cart
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })
@@ -33,6 +35,8 @@ describe('Dynamic Validation Tests', () => {
     cy.contains('a', 'Samsung galaxy s6').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })
@@ -55,6 +59,8 @@ describe('Dynamic Validation Tests', () => {
     cy.contains('a', 'Samsung galaxy s6').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })
@@ -66,6 +72,8 @@ describe('Dynamic Validation Tests', () => {
     cy.contains('a', 'Nokia lumia 1520').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })
@@ -88,6 +96,8 @@ describe('Dynamic Validation Tests', () => {
     cy.contains('a', 'Samsung galaxy s6').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })
@@ -124,6 +134,8 @@ describe('Dynamic Validation Tests', () => {
     cy.contains('a', 'Samsung galaxy s6').first().click()
     cy.url().should('include', 'prod.html')
     cy.contains('Add to cart').click()
+    
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Product added.')
     })

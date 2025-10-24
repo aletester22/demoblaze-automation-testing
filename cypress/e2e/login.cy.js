@@ -34,7 +34,7 @@ describe('Login Tests', () => {
     // Click login button
     cy.get('button[onclick="logIn()"]').click()
     
-    // Verify login failure
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('User does not exist.')
     })
@@ -51,14 +51,14 @@ describe('Login Tests', () => {
     // Click login button
     cy.get('button[onclick="logIn()"]').click()
     
-    // Verify login failure - check that login button is still visible
-    cy.get('#login2').should('be.visible')
-    cy.get('#logout2').should('not.be.visible')
-    
-    // Verify error message
+    // Handle alert
     cy.on('window:alert', (str) => {
       expect(str).to.equal('Wrong password.')
     })
+    
+    // Verify login failure - check that login button is still visible
+    cy.get('#login2').should('be.visible')
+    cy.get('#logout2').should('not.be.visible')
   })
 
   it('should logout successfully', () => {
